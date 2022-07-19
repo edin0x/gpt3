@@ -34,7 +34,7 @@ async function main() {
       prompt,
     });
     console.log(`[info] digging complete.`);
-    console.log(`[inf] Story so far:\n\x1b[33m${prompt.join("")}\x1b[0m`);
+    console.log(`[info] story so far:\n\x1b[33m${prompt.join("")}\x1b[0m`);
     console.log(`==========================================================`);
 
     const choices = (response.data.choices || []).map((c) => c.text || "");
@@ -47,6 +47,7 @@ async function main() {
     const chosenText = response.data.choices?.[index].text;
     prompt.push(`\n${chosenText?.replaceAll("\n", "")}.`);
   }
+  console.log(`[info] generated story:\n\x1b[33m${prompt.join("")}\x1b[0m`);
 }
 
 main();
